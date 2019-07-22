@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="" href="css/style.css">
+    <title>Coin flip game</title>
+  </head>
+  <body>
+    <h1>Coin flip Program</h1>
+    <h3>click the button to simulate a coin flip</h3>
+    <p>its 2019 who has time to flip a coin? let this program do it for you</p>
+    <button type="button" name="button" id ="heads">Click me to guess heads!</button>
+    <button type="button" name="button" id ="tails">Click me to guess tails!</button>
+    <h4>The result of the coin flip is...</h4>
+    <span>Score:</span>
+    <span id="headsScore">heads : 0</span>
+    <span id="tailsScore">tails: 0</span>
+    <h4 id ="result"></h4>
+   <script type = "text/javascript">
+      document.querySelector('#heads').addEventListener('click', guessHeads)
+      document.querySelector('#tails').addEventListener('click', guessTails)
+      let heads = 0
+      let tails = 0
+      function guessHeads() {
+      let x = (Math.floor(Math.random()*2)===0);
+      if(x){
+        document.getElementById("result").innerHTML = 'Heads. Good guess!';
+        heads +=1
+        document.getElementById('headsScore').innerHTML = `Heads: ${heads}`
+      }else{
+        document.getElementById("result").innerHTML = 'Tails. Better luck next time';
+        tails +=1
+        document.getElementById('tailsScore').innerHTML = `Tails: ${tails}`
+        }
+        console.log(heads)
+        console.log(tails)
+      }
+      function guessTails() {
+      let x = (Math.floor(Math.random()*2)===0);
+      if(!x){
+        document.getElementById("result").innerHTML = 'Heads. try again!';
+        heads +=1
+        document.getElementById('headsScore').innerHTML = `Heads: ${heads}`
+      }else{
+        document.getElementById("result").innerHTML = 'Tails. lucky guess!';
+        tails +=1
+        document.getElementById('tailsScore').innerHTML = `Tails: ${tails}`
+        }
+        console.log(heads)
+        console.log(tails)
+      }
+   </script>
+  </body>
+</html>
